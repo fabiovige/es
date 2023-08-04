@@ -1,19 +1,70 @@
-let car = "fusca";
-car = "teste";
+// forEach
+const numbers = [51, 42, 33, 24, 15];
+numbers.forEach((value, key) => {
+	numbers[key] = value + 1;
+});
+console.log(numbers);
 
-console.log(car); // fusca
+// map
+const numbers2 = [51, 42, 33, 24, 15];
+const newnumbers = numbers2.map(function (value) {
+	return value + 1;
+});
+console.log(newnumbers);
 
-const person = {
-	name: "John",
-};
+// reduce
+const total = numbers.reduce((totalParcial, value) => {
+	return totalParcial + value;
+});
+console.log(total);
 
-console.log(person.name); // John
+// filter e find
+const todos = [
+	{ text: "lavar louça", done: true },
+	{ text: "lavar roupa", done: true },
+	{ text: "lavar carro", done: false },
+	{ text: "lavar cachorro", done: true },
+	{ text: "lavar cachorro", done: true },
+];
+console.log(todos);
 
-person.name = "Mary";
+const doneTodos = todos.filter((todo) => {
+	return todo.done;
+});
+console.log(doneTodos);
 
-console.log(person.name); // Mary
+const todosSearch = todos.find((todo) => {
+	return todo.text === "lavar cachorro";
+});
+console.log(todosSearch);
 
-for (let i = 0; i < 10; i++) {
-	console.log(i);
-}
-console.log(i); // ReferenceError: i is not defined
+// indexOf findIndex
+console.log(todos.indexOf("lavar louça"));
+console.log(todos.findIndex((todo) => todo.text === "lavar carro"));
+
+// some e every equivalente ao in_array do php
+const frutas = ["banana", "maçã", "pera", "uva", "melancia"];
+const hasFrutas = frutas.some((fruta) => {
+	return fruta === "bananaq";
+});
+console.log(hasFrutas);
+
+
+// every verifica se todos os elementos do array atendem a uma condição
+const pessoas = [
+	{ nome: 'João', sobrenome: 'Silva' },
+	{ nome: 'Maria', sobrenome: 'Ferreira' },
+	{ nome: 'teste', sobrenome: 'Gomes' },
+	{ nome: 'Carlos', sobrenome: 'Teste' },
+	{ nome: 'Ana', sobrenome: 'Pereira' }
+  ];
+  
+  // Verificando se todos os registros têm os campos "nome" e "sobrenome" preenchidos
+  const todosPreenchidos = pessoas.every(
+	pessoa => typeof pessoa.nome === 'string' && pessoa.nome.trim() !== '' &&
+			  typeof pessoa.sobrenome === 'string' && pessoa.sobrenome.trim() !== ''
+  );
+  
+  console.log(todosPreenchidos);
+  // Output: false, porque os registros com índices 2 e 3 possuem campos vazios (nome e sobrenome)
+  
