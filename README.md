@@ -20,7 +20,7 @@
 	<li>[x] Const & Let</li>
 	<li>[x] Operações em array</li>
 	<li>[x] Arrow functions</li>
-	<li>[ ] Parâmetro padrão</li>
+	<li>[-] Parâmetro padrão</li>
 	<li>[ ] Template strings</li>
 	<li>[ ] Object short syntax</li>
 	<li>[ ] Desestruturação</li>
