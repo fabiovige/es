@@ -106,3 +106,14 @@ var showProduct = function showProduct(product, price) {
   console.log("O valor da ".concat(product, " \xE9 R$ ").concat(price, " reais, pode comprar!"));
 };
 showProduct("camisa", 15);
+console.log("teste II");
+
+// Object short syntax
+var name = "camisa";
+var price = 15;
+var product = {
+  name: name,
+  price: price,
+  stock: 10
+};
+console.log(product);
