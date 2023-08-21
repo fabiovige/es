@@ -1,5 +1,7 @@
 "use strict";
 
+function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
+function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 // forEach
 var numbers = [51, 42, 33, 24, 15];
 numbers.forEach(function (value, key) {
@@ -117,3 +119,63 @@ var product = {
   stock: 10
 };
 console.log(product);
+
+// Desestruturação de arrays
+
+var fruits = ["banana", "maçã", "pera", "uva", "melancia"];
+var indice1 = fruits[0],
+  indice2 = fruits[1],
+  indice3 = fruits[2],
+  restante = fruits.slice(3);
+console.log(indice1, indice3, restante);
+
+// Desestruturação de objetos
+
+var person = {
+  firstName: "Fabio",
+  lastName: "Dudi",
+  age: 30,
+  address: {
+    city: "São Paulo",
+    region: "SP"
+  }
+};
+var firstName = person.firstName,
+  lastName = person.lastName,
+  city = person.address.city;
+console.log(firstName, lastName, city);
+
+// Desestruturação de objetos
+var showFullName = function showFullName(_ref) {
+  var firstName = _ref.firstName,
+    lastName = _ref.lastName;
+  console.log("".concat(person.firstName, " ").concat(person.lastName));
+};
+showFullName(person);
+
+// Operadores rest/spread
+var numbers3 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+var primeiroNumero = numbers3[0],
+  segundoNumero = numbers3[1],
+  resto = numbers3.slice(2);
+console.log(primeiroNumero, segundoNumero, resto);
+var name2 = person.firstName,
+  resto2 = _objectWithoutProperties(person, ["firstName"]);
+console.log(name2, resto2);
+
+// rest
+var sum = function sum() {
+  for (var _len = arguments.length, numbers = new Array(_len), _key = 0; _key < _len; _key++) {
+    numbers[_key] = arguments[_key];
+  }
+  return numbers.reduce(function (total, next) {
+    return total + next;
+  });
+};
+console.log(sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 11));
+
+// spread - unificar vetores
+var numbers4 = [1, 2, 3, 4, 5];
+var numbers5 = [6, 7, 8, 9, 10];
+var numbers6 = [].concat(numbers4, numbers5);
+console.log(numbers6);

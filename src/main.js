@@ -104,3 +104,62 @@ const product = {
 };
 
 console.log(product);
+
+// Desestruturação de arrays
+
+const fruits = ["banana", "maçã", "pera", "uva", "melancia"];
+
+const [indice1, indice2, indice3, ...restante] = fruits;
+
+console.log(indice1, indice3, restante);
+
+// Desestruturação de objetos
+
+const person = {
+  firstName: "Fabio",
+  lastName: "Dudi",
+  age: 30,
+  address: {
+    city: "São Paulo",
+    region: "SP",
+  },
+};
+
+const {
+  firstName,
+  lastName,
+  address: { city },
+} = person;
+
+console.log(firstName, lastName, city);
+
+// Desestruturação de objetos
+const showFullName = ({ firstName, lastName }) => {
+  console.log(`${person.firstName} ${person.lastName}`);
+};
+
+showFullName(person);
+
+// Operadores rest/spread
+const numbers3 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+const [primeiroNumero, segundoNumero, ...resto] = numbers3;
+
+console.log(primeiroNumero, segundoNumero, resto);
+
+const { firstName: name2, ...resto2 } = person;
+
+console.log(name2, resto2);
+
+// rest
+const sum = (...numbers) => {
+  return numbers.reduce((total, next) => total + next);
+};
+console.log(sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 11));
+
+// spread - unificar vetores
+const numbers4 = [1, 2, 3, 4, 5];
+const numbers5 = [6, 7, 8, 9, 10];
+const numbers6 = [...numbers4, ...numbers5];
+
+console.log(numbers6);
