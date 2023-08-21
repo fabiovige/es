@@ -163,3 +163,18 @@ const numbers5 = [6, 7, 8, 9, 10];
 const numbers6 = [...numbers4, ...numbers5];
 
 console.log(numbers6);
+
+const person2 = {
+  firstName: "Fabio",
+  lastName: "Dudi",
+  age: 30,
+  company: "Vige Tec",
+};
+
+const person3 = {
+  ...person2,
+  firstName: "João",
+  company: "Vige Tec II",
+};
+
+console.log(person3);
