@@ -1,6 +1,15 @@
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _get() { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get.bind(); } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(arguments.length < 3 ? target : receiver); } return desc.value; }; } return _get.apply(this, arguments); }
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -33,19 +42,19 @@ console.log(total);
 
 // filter e find
 var todos = [{
-  text: 'lavar louça',
+  text: "lavar louça",
   done: true
 }, {
-  text: 'lavar roupa',
+  text: "lavar roupa",
   done: true
 }, {
-  text: 'lavar carro',
+  text: "lavar carro",
   done: false
 }, {
-  text: 'lavar cachorro',
+  text: "lavar cachorro",
   done: true
 }, {
-  text: 'lavar cachorro',
+  text: "lavar cachorro",
   done: true
 }];
 console.log(todos);
@@ -54,55 +63,55 @@ var doneTodos = todos.filter(function (todo) {
 });
 console.log(doneTodos);
 var todosSearch = todos.find(function (todo) {
-  return todo.text === 'lavar cachorro';
+  return todo.text === "lavar cachorro";
 });
 console.log(todosSearch);
 
 // indexOf findIndex
-console.log(todos.indexOf('lavar louça'));
+console.log(todos.indexOf("lavar louça"));
 console.log(todos.findIndex(function (todo) {
-  return todo.text === 'lavar carro';
+  return todo.text === "lavar carro";
 }));
 
 // some e every equivalente ao in_array do php
-var frutas = ['banana', 'maçã', 'pera', 'uva', 'melancia'];
+var frutas = ["banana", "maçã", "pera", "uva", "melancia"];
 var hasFrutas = frutas.some(function (fruta) {
-  return fruta === 'bananaq';
+  return fruta === "bananaq";
 });
 console.log(hasFrutas);
 
 // every verifica se todos os elementos do array atendem a uma condição
 var pessoas = [{
-  nome: 'João',
-  sobrenome: 'Silva'
+  nome: "João",
+  sobrenome: "Silva"
 }, {
-  nome: 'Maria',
-  sobrenome: 'Ferreira'
+  nome: "Maria",
+  sobrenome: "Ferreira"
 }, {
-  nome: 'teste',
-  sobrenome: 'Gomes'
+  nome: "teste",
+  sobrenome: "Gomes"
 }, {
-  nome: 'Carlos',
-  sobrenome: 'Teste'
+  nome: "Carlos",
+  sobrenome: "Teste"
 }, {
-  nome: 'Ana',
-  sobrenome: 'Pereira'
+  nome: "Ana",
+  sobrenome: "Pereira"
 }];
 
 // Verificando se todos os registros têm os campos "nome" e "sobrenome" preenchidos
 var todosPreenchidos = pessoas.every(function (pessoa) {
-  return typeof pessoa.nome === 'string' && pessoa.nome.trim() !== '' && typeof pessoa.sobrenome === 'string' && pessoa.sobrenome.trim() !== '';
+  return typeof pessoa.nome === "string" && pessoa.nome.trim() !== "" && typeof pessoa.sobrenome === "string" && pessoa.sobrenome.trim() !== "";
 });
 console.log(todosPreenchidos);
 // Output: false, porque os registros com índices 2 e 3 possuem campos vazios (nome e sobrenome)
 
 function novoNome() {
-  var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Fabio';
-  console.log('Olá ' + name);
+  var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "Fabio";
+  console.log("Olá " + name);
 }
 var novoNome2 = function novoNome2() {
-  var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'Dudi';
-  return console.log('Olá ' + name);
+  var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "Dudi";
+  return console.log("Olá " + name);
 };
 novoNome();
 novoNome2();
@@ -116,11 +125,11 @@ var showProduct = function showProduct(product, price) {
 
   console.log("O valor da ".concat(product, " \xE9 R$ ").concat(price, " reais, pode comprar!"));
 };
-showProduct('camisa', 15);
-console.log('teste II');
+showProduct("camisa", 15);
+console.log("teste II");
 
 // Object short syntax
-var name = 'camisa';
+var name = "camisa";
 var price = 15;
 var product = {
   name: name,
@@ -131,7 +140,7 @@ console.log(product);
 
 // Desestruturação de arrays
 
-var fruits = ['banana', 'maçã', 'pera', 'uva', 'melancia'];
+var fruits = ["banana", "maçã", "pera", "uva", "melancia"];
 var indice1 = fruits[0],
   indice2 = fruits[1],
   indice3 = fruits[2],
@@ -141,12 +150,12 @@ console.log(indice1, indice3, restante);
 // Desestruturação de objetos
 
 var person = {
-  firstName: 'Fabio',
-  lastName: 'Dudi',
+  firstName: "Fabio",
+  lastName: "Dudi",
   age: 30,
   address: {
-    city: 'São Paulo',
-    region: 'SP'
+    city: "São Paulo",
+    region: "SP"
   }
 };
 var firstName = person.firstName,
@@ -189,101 +198,86 @@ var numbers5 = [6, 7, 8, 9, 10];
 var numbers6 = [].concat(numbers4, numbers5);
 console.log(numbers6);
 var person2 = {
-  firstName: 'Fabio',
-  lastName: 'Dudi',
+  firstName: "Fabio",
+  lastName: "Dudi",
   age: 30,
-  company: 'Vige Tec'
+  company: "Vige Tec"
 };
 var person3 = _objectSpread(_objectSpread({}, person2), {}, {
-  firstName: 'João',
-  company: 'Vige Tec II'
+  firstName: "João",
+  company: "Vige Tec II"
 });
 console.log(person3);
-
-// Funções construtoras
-function Car(brand, price) {
-  this.brand = brand;
-  this.price = price;
-  console.log(this);
-}
-var civc = new Car('Honda', 10000);
-var hb20 = new Car('Hyundai', 20000);
-
-// Classes
-var Car2 = /*#__PURE__*/function () {
-  function Car2(brand) {
-    var price = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 23;
-    _classCallCheck(this, Car2);
-    this.brand = brand;
-    this.price = price;
-  }
-  _createClass(Car2, [{
-    key: "run",
-    value: function run() {
-      console.log('correndo...');
-    }
-  }]);
-  return Car2;
-}();
-var civic = new Car2('Honda');
-civic.run();
-console.log(civic.price);
-
-// Person
-var Person = /*#__PURE__*/function () {
-  function Person(firstName, lastName) {
-    _classCallCheck(this, Person);
-    this._firstName = firstName;
-    this._lastName = lastName;
-  }
-  _createClass(Person, [{
-    key: "fullName",
-    get: function get() {
-      return "".concat(this._firstName, " ").concat(this._lastName);
-    },
-    set: function set(value) {
-      var parts = value.split(' ');
-      this._firstName = parts[0];
-      this._lastName = parts[1];
-    }
-  }]);
-  return Person;
-}();
-var fabio = new Person('Fabio', 'Vige');
-console.log(fabio.fullName);
-
-// Métodos estáticos
-var Calculadora = /*#__PURE__*/function () {
-  function Calculadora() {
-    _classCallCheck(this, Calculadora);
-  }
-  _createClass(Calculadora, null, [{
-    key: "sum",
-    value: function sum(a, b) {
-      return a + b;
-    }
-  }]);
-  return Calculadora;
-}();
-console.log(Calculadora.sum(2, 2));
-var Animal = /*#__PURE__*/function () {
-  function Animal(name) {
-    _classCallCheck(this, Animal);
+var Pessoa = /*#__PURE__*/function () {
+  function Pessoa(name, sobrenome) {
+    _classCallCheck(this, Pessoa);
     this.name = name;
-    this.age = 8;
+    this.sobrenome = sobrenome;
   }
-  _createClass(Animal, [{
+  _createClass(Pessoa, [{
     key: "fullName",
     get: function get() {
-      return Animal.joinName(this.name, this.age);
+      return Pessoa.joinName(this.name, this.sobrenome);
     }
   }], [{
     key: "joinName",
-    value: function joinName(name, age) {
-      return "".concat(name, " ").concat(age);
+    value: function joinName(name, sobrenome) {
+      return "".concat(name, " ").concat(sobrenome);
     }
   }]);
-  return Animal;
+  return Pessoa;
 }();
-var gato = new Animal('gato');
-console.log(gato.fullName);
+var fabio = new Pessoa("Fabio", "Vige");
+console.log(fabio.fullName);
+
+// Herança
+var Veiculo = /*#__PURE__*/function () {
+  function Veiculo(rodas) {
+    _classCallCheck(this, Veiculo);
+    this.rodas = rodas;
+  }
+  _createClass(Veiculo, [{
+    key: "acelerar",
+    value: function acelerar() {
+      console.log("Acelerou com o carro");
+    }
+  }]);
+  return Veiculo;
+}();
+var Moto = /*#__PURE__*/function (_Veiculo) {
+  _inherits(Moto, _Veiculo);
+  var _super = _createSuper(Moto);
+  function Moto(rodas, capacete) {
+    var _this;
+    _classCallCheck(this, Moto);
+    _this = _super.call(this, rodas);
+    _this.capacete = capacete;
+    return _this;
+  }
+  _createClass(Moto, [{
+    key: "empinar",
+    value: function empinar() {
+      console.log("Empinou com ".concat(this.rodas, " rodas"));
+    }
+  }, {
+    key: "acelerar",
+    value: function acelerar() {
+      _get(_getPrototypeOf(Moto.prototype), "acelerar", this).call(this);
+      console.log("Acelerou muito com a moto");
+    }
+  }, {
+    key: "possuiCapacete",
+    value: function possuiCapacete() {
+      if (this.capacete) {
+        console.log("Possui capacete");
+      } else {
+        console.log("Não possui capacete");
+      }
+    }
+  }]);
+  return Moto;
+}(Veiculo);
+var bross = new Moto(2, false);
+bross.empinar();
+bross.acelerar();
+bross.possuiCapacete();

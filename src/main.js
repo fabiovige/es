@@ -178,3 +178,61 @@ const person3 = {
 };
 
 console.log(person3);
+
+class Pessoa {
+  constructor(name, sobrenome) {
+    this.name = name;
+    this.sobrenome = sobrenome;
+  }
+  get fullName() {
+    return Pessoa.joinName(this.name, this.sobrenome);
+  }
+
+  static joinName(name, sobrenome) {
+    return `${name} ${sobrenome}`;
+  }
+}
+
+let fabio = new Pessoa("Fabio", "Vige");
+console.log(fabio.fullName);
+
+// Herança
+
+class Veiculo {
+  constructor(rodas) {
+    this.rodas = rodas;
+  }
+
+  acelerar() {
+    console.log("Acelerou com o carro");
+  }
+}
+
+class Moto extends Veiculo {
+  constructor(rodas, capacete) {
+    super(rodas);
+    this.capacete = capacete;
+  }
+
+  empinar() {
+    console.log(`Empinou com ${this.rodas} rodas`);
+  }
+
+  acelerar() {
+    super.acelerar();
+    console.log("Acelerou muito com a moto");
+  }
+
+  possuiCapacete() {
+    if (this.capacete) {
+      console.log("Possui capacete");
+    } else {
+      console.log("Não possui capacete");
+    }
+  }
+}
+
+let bross = new Moto(2, false);
+bross.empinar();
+bross.acelerar();
+bross.possuiCapacete();
