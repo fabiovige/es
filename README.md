@@ -21,8 +21,25 @@
 	<li>[x] Operações em array</li>
 	<li>[x] Arrow functions</li>
 	<li>[x] Parâmetro padrão</li>
-	<li>[ ] Template strings</li>
-	<li>[ ] Object short syntax</li>
-	<li>[ ] Desestruturação</li>
-	<li>[ ] Operadores rest/spread</li>
+	<li>[x] Template strings</li>
+	<li>[x] Object short syntax</li>
+	<li>[x] Desestruturação</li>
+	<li>[x] Operadores rest/spread</li>
+</ul>
+
+## Async/await
+<ul>
+  <li>[x] Função constutora</li>
+  <li>[x] Classes</li>
+  <li>[x] Get & Set</li>
+  <li>[x] Métodos estáticos</li>
+  <li>[x] Herança</li>
+</ul>
+
+## Webpack
+<ul>
+  <li>[x] Configurando webpack</li>
+  <li>[x] import/export</li>
+  <li>[] async/await</li>
+  <li>[] try/catch</li>
 </ul>
